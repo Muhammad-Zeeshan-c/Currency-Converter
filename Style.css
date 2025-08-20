@@ -32,7 +32,6 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  backgroung-color: blue;
 }
 
 #heading {
@@ -497,4 +496,5 @@ li {
     font-size: 0.8rem;
   }
 }
+
 
