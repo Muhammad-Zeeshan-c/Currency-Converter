@@ -1,0 +1,500 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display:flex;
+  flex-direction:column
+}
+
+#container {
+  height:auto;
+  min-height: 100vh;
+  background-image: url(Image/Background\ pic.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  backgroung-color: blue;
+}
+
+#heading {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+#heading-a {
+    position:relative;
+    left:2%;
+  font-weight: normal;
+  font-size: 28px;
+  background: linear-gradient(to right, rgb(91, 91, 187) 0%, black 100%);
+  white-space: nowrap;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#inner-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+}
+
+#inner-container > :nth-child(2) {
+  font-size: 1.3rem;
+  color: white;
+  font-weight: lighter;
+  opacity: 0.5;
+  padding: 5%;
+  text-align:center;
+}
+
+#heading-para {
+  color: white;
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+}
+
+#exchange-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100px;
+  border-radius: 5px;
+  justify-content: space-around;
+  margin-right:20px
+}
+
+#exchange-sub-container {
+  width: 97%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  border:2px solid black;
+
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26%;
+  height: 50%;
+  border: 1px solid black;
+  border-radius: 2px;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.contry-img {
+  width: 20%;
+  height: 100%;
+  padding: 1%;
+  font: Roboto;
+}
+
+#from-dropdown,
+#to-dropdown {
+  background-color: white;
+  width: 80%;
+  height: 100%;
+  border: none;
+  outline: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+#Amount-container {
+  width: 14%;
+  height: 50%;
+}
+
+#Amount-input {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-self: center;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: black;
+}
+
+#convert-pic {
+  height: 50%;
+  width: 4.5%;  
+  display: flex;
+  justify-content: center;
+}
+
+#convert-logo {
+  color: black;
+  font-size: 40px;
+  margin: 3px 10px 0px 0px;
+}
+
+#convert-btn {
+  width: 14%;
+  background-color: red;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#promo-text {
+  text-align: center;
+  color: white;
+  font-size: 2.2rem;
+}
+
+#sub-promo-text {
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(136, 175, 217);
+}
+
+#conversion-result {
+  display: none;
+  text-align: center;
+  color: black;
+  font-size: 1rem;
+  min-width: 120px;
+  max-width:180px;
+  margin-top:10px;
+  max-height: 100px; 
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  word-wrap: break-word; 
+  white-space: normal; 
+  padding: 5px; 
+}
+
+#info-container {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  row-gap: 2%;
+  flex-wrap: wrap;
+}
+
+.info-box {
+  width: 24%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.imgs {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  height: 86px;
+  width: 88px;
+}
+
+.info-headings {
+  color: rgb(31, 94, 164);
+  margin: 10px 0px;
+  font-weight: lighter;
+}
+
+.info-paras {
+  text-align: center;
+}
+
+#currencies-container {
+  background-color: #f9f9f9;
+  width: 100%;
+  height: 60vh;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#currencies-heading {
+  text-align: center;
+  font-size: 32px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.currencies ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.currencies-imgs {
+  height: 30px;
+  width: 40px;
+  object-fit: cover;
+}
+
+/* Footer */
+#footer {
+  width: 100%;
+  height: 25vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:20px;
+  overflow:hidden;
+}
+
+#footer > #footer-logo {
+  position: relative;
+  width: 100%;
+}
+
+.links {
+  width: 58%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  height:10%;
+}
+
+#footer-copyright {
+  width: 100%;
+  height:90%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center; 
+}
+
+#footer-copyright p {
+  font-size: 1rem;
+}
+
+#footer-copyright a {
+  text-decoration: none;
+  color: skyblue;
+}
+
+#contact {
+  margin-right: 40px;
+}
+
+.footer-Atags {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+
+/* Media Queries - Refined for better responsiveness */
+@media screen and (max-width: 1000px) {
+  #currencies-container {
+    height: auto;
+  }
+  #info-container {
+    height: auto;
+    padding: 20px 0;
+  }
+  .info-box {
+    width: 40%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .links {
+    width: 80%;
+  }
+  #currencies-list4 {
+    display: none;
+  }
+  .contry-img {
+    width: 40px;
+    height: 30px;
+    padding: 0;
+    object-fit: contain;
+  }
+  #exchange-container {
+    width: 90%; /* Increased width for better mobile layout */
+  }
+}
+
+@media screen and (max-width: 760px) {
+  #exchange-container {
+    
+    width:90%;
+    height: auto;
+    display:flex;
+    justify-content:center;
+  }
+  #exchange-sub-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+  }
+  #Amount-container,
+  .box,
+  #convert-pic,
+  #convert-btn {
+    width: 100% !important;
+    height: 45px;
+  }
+  #convert-pic {
+    justify-content: center;
+  }
+  .info-box {
+    width: 90%;
+  }
+  #currencies-container {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+  .currencies {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .currencies ul li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .contry-img {
+    width: 40px;
+    height: 30px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  #currencies-list3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #heading-a {
+    font-size: 20px;
+  }
+  #heading-para {
+    font-size: 20px;
+    text-align: center;
+  }
+  #promo-text {
+    font-size: 1.5rem;
+  }
+  #sub-promo-text {
+    font-size: 1rem;
+  }
+  .link{
+    display:flex;
+    flex-direction:column;
+    row-gap:2%;
+  }
+  #footer-links {
+    flex-direction: row;
+    gap:5px;
+  }
+  #contact {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  #footer-copyright {
+    flex-direction: row;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  #heading-a {
+    font-size: 16px;
+  }
+  #heading-para {
+    font-size: 16px;
+  }
+  #promo-text {
+    font-size: 1rem;
+  }
+  #sub-promo-text {
+    font-size: 0.8rem;
+  }
+  .info-box {
+    width: 95%;
+    padding: 10px;
+  }
+  .currencies {
+    width: 95%;
+  }
+  li {
+    font-size: 0.8rem;
+  }
+  .currencies-imgs {
+    height: 25px;
+    width: 35px;
+  }
+  #footer-copyright p,
+  #footer-copyright a {
+    font-size: 0.8rem;
+  }
+}
+

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Currency Converter</title>
+</head>
+
+<body>
+
+    <main>
+
+        <div id="container">
+            <h2 id="heading">
+                <span id="heading-a">AccuCurrency Converter</span>
+            </h2>
+
+            <form>
+                <div id="inner-container">
+                    <p id="heading-para">FIND THE LATEST CURRENCY EXCHANGE RATES</p>
+                    <p>Best Exchange Rates at your Finger Tips</p>
+                    <div id="exchange-container">
+                        <div id="exchange-sub-container">
+                            <div id="Amount-container">
+                                <input type="text" value="" placeholder="Enter an Amount" id="Amount-input">
+                            </div>
+
+                            <div class="box" id="from-container">
+                                <img src="https://flagsapi.com/PK/shiny/64.png" alt="Country img" class="contry-img"
+                                    id="from-img">
+                                <select name="from" id="from-dropdown" class="dropdowns">
+                                </select>
+                            </div>
+
+                            <div id="convert-pic">
+                                <i class="fa-solid fa-right-left" id="convert-logo"></i>
+                            </div>
+
+                            <div class="box" id="to-container">
+                                <img src="https://flagsapi.com/US/shiny/64.png" alt="Country img" class="contry-img"
+                                    id="to-img">
+                                <select name="to" id="to-dropdown" class="dropdowns">
+                                </select>
+                            </div>
+
+                            <button class="box" id="convert-btn">Convert</button>
+                        </div>
+
+                    </div>
+                    <div id="conversion-result"></div>
+
+                </div>
+                <p id="promo-text">Calculate live currency and forex exchange rates</p>
+                <p id="sub-promo-text">Convert all major world currencies with our currency converter</p>
+            </form>
+        </div>
+
+        <div id="info-container">
+            <div id="real-time" class="info-box">
+                <img src="Image/realtimerates.svg" alt="img" class="imgs">
+                <h4 class="info-headings">Real-time rates</h4>
+                <p class="info-paras">Hourly updated exchange rates keep our information current and actionable.</p>
+            </div>
+            <div id="accurate" class="info-box">
+                <img src="Image/accurate.svg" alt="img" class="imgs">
+                <h4 class="info-headings">Accurate</h4>
+                <p class="info-paras">Reliable and consistent data, our tool offers the accuracy your need.</p>
+            </div>
+            <div id="historic-data" class="info-box">
+                <img src="Image/historicdata.svg" alt="img" class="imgs">
+                <h4 class="info-headings">Historic data</h4>
+                <p class="info-paras">Our algorithms track data back from 1999 so you have valuable historical
+                    information</p>
+
+            </div>
+        </div>
+
+        <div id="currencies-container">
+            <h2 id="currencies-heading"> Popular Currencies</h2>
+            <div id="currencies-list1" class="currencies">
+                <ul>
+                    <li><img src="" alt="1" id="ar" class="currencies-imgs"><span>ARS - Argentine Peso</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="au"><span>AUD - Australian Dollar</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="br"><span>BRL - Brazilian Real</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="gb"><span>GBP - British Pound Sterling</span>
+                    </li>
+                    <li><img class="currencies-imgs" src="" alt="" id="ca"><span>CAD - Canadian Dollar</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="cl"><span>CLP - Chilean Peso</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="cn"><span>CNY - Chinese Yuan</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="cz"><span>CZK - Czech Republic Koruna</span></li>
+
+                </ul>
+            </div>
+
+            <div id="currencies-list2" class="currencies">
+                <ul>
+
+                    <li><img class="currencies-imgs" src="" alt="" id="dk"><span>DKK - Danish Krone</span></li>
+                    <li><img class="currencies-imgs" src="https://flagcdn.com/w20/eu.png" alt="" id="eu"><span>EUR -
+                            Euro</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="hk"><span>HKD - Hong Kong Dollar</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="hu"><span>HUF - Hungarian Forint</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="is"><span>ISK - Icelandic Króna</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="in"><span>INR - Indian Rupee</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="id"><span>IDR - Indonesian Rupiah</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="jp"><span>JPY - Japanese Yen</span></li>
+
+
+                </ul>
+
+            </div>
+
+            <div id="currencies-list3" class="currencies">
+                <ul>
+                    <li><img class="currencies-imgs" src="" alt="" id="my"><span>MYR - Malaysian Ringgit</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="mx"><span>MXN - Mexican Peso</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="nz"><span>NZD - New Zealand Dollar</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="no"><span>NOK - Norwegian Krone</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="pk"><span>PKR - Pakistani Rupee</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="ph"><span>PHP - Philippine Peso</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="pl"><span>PLN - Polish Zloty</span></li>
+                    <li><img class="currencies-imgs" src="" alt="" id="ru"><span>RUB - Russian Ruble</span></li>
+
+
+                </ul>
+            </div>
+
+
+            <div id="currencies-list4" class="currencies">
+
+                <li><img class="currencies-imgs" src="" alt="" id="sg"><span>SGD - Singapore Dollar</span></li>
+                <li><img class="currencies-imgs" src="" alt="" id="za"><span>ZAR - South African Rand</span></li>
+                <li><img class="currencies-imgs" src="" alt="" id="kr"><span>KRW - South Korean Won</span></li>
+                <li><img class="currencies-imgs" src="" alt="" id="se"><span>SEK - Swedish Krona</span></li>
+                <li><img class="currencies-imgs" src="" alt="" id="ch"><span>CHF - Swiss Franc</span></li>
+                <li><img class="currencies-imgs" src="" alt="" id="tw"><span>TWD - Taiwan Dollar</span></li>
+                <li><img class="currencies-imgs" src="" alt="" id="th"><span>THB - Thai Baht</span></li>
+                <li><img class="currencies-imgs" src="" alt="" id="tr"><span>TRY - Turkish Lira</span></li>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        <div id="footer-logo">
+            <h2 id="heading">
+                <span id="heading-a">AccuCurrency Converter</span>
+            </h2>
+        </div>
+        <div class="links">
+            <div id="footer-links">
+                <a href="Index.html" class="footer-Atags" target="_self" id="contact">Contact US</a>
+                <a href="" class="footer-Atags" target="_self">Privacy Policy</a>
+            </div>
+
+            <div id="footer-copyright">
+                <p>&copy; 2025 AccuCurrency Converter.
+                All rights reserved.
+                Developed by <a href="">DZeeLabs®</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="Codes.js"></script>
+    <script src="Script.js"></script>
+</body>
+
+</html>
