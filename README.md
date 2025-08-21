@@ -38,5 +38,3 @@ This project demonstrates **DOM manipulation, API integration, and responsive de
   - [Fawaz Ahmed Currency API](https://github.com/fawazahmed0/currency-api) for real-time exchange rates  
   - [Flags API](https://flagsapi.com) for country flags  
 - **Tools & Libraries**: Vanilla JS, Fetch API  
-```bash
-git clone https://github.com/yourusername/currency-converter.git
