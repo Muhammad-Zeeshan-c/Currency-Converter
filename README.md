@@ -35,6 +35,6 @@ This project demonstrates **DOM manipulation, API integration, and responsive de
   - CSS3  
   - JavaScript (ES6)  
 - **APIs**:  
-  - [Fawaz Ahmed Currency API](https://github.com/fawazahmed0/currency-api) for real-time exchange rates  
+  - [Currency API](https://github.com/fawazahmed0/currency-api) for real-time exchange rates  
   - [Flags API](https://flagsapi.com) for country flags  
 - **Tools & Libraries**: Vanilla JS, Fetch API  
