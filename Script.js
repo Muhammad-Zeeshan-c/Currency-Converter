@@ -1,105 +1,119 @@
-const baseUrl="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
+// Configuration
+const accessKey = ""; // Not needed for this public API, but kept for structure
+const API_URL = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 
-const dropdowns = document.querySelectorAll(".dropdowns");
+// Element Selectors
+const fromCurrency = document.querySelector("#from-dropdown");
+const toCurrency = document.querySelector("#to-dropdown");
+const amountInput = document.querySelector("#Amount-input");
+const convertBtn = document.querySelector("#convert-btn");
+const swapBtn = document.querySelector("#convert-pic");
+const conversionResult = document.querySelector("#conversion-result");
+const loader = document.querySelector("#loader");
+const fromImg = document.querySelector("#from-img");
+const toImg = document.querySelector("#to-img");
 
-let toCurrency=document.querySelector("#to-dropdown");
-let fromCurrency=document.querySelector("#from-dropdown");
-
-let convertBtn=document.querySelector("#convert-btn");
-let Amount=document.querySelector("#Amount-input");
-let swapBtn=document.querySelector("#convert-pic")
-
-//adding pics of currencies at bottom
-
-function currenciesAtBottomPics(){
-    let imgs=document.querySelectorAll(".currencies-imgs");
-
-    for (image of imgs){
-        let countCode=image.id;
-        if (countCode !=="eu"){
-        let otherSrc=`https://flagsapi.com/${countCode.toUpperCase()}/flat/64.png`;
-        image.src=otherSrc;
+// Initialize dropdowns from countryList (defined in Codes.js)
+function populateDropdowns() {
+    [fromCurrency, toCurrency].forEach(select => {
+        for (let currCode in countryList) {
+            const option = document.createElement("option");
+            option.innerText = `${currCode} - ${countryList[currCode][0]}`;
+            option.value = currCode;
+            
+            // Set defaults: PKR to USD
+            if (select.id === "from-dropdown" && currCode === "PKR") option.selected = true;
+            if (select.id === "to-dropdown" && currCode === "USD") option.selected = true;
+            
+            select.append(option);
         }
-    }
-}
-currenciesAtBottomPics();
 
- 
-for (let select of dropdowns) {
-  for (currCode in countryList) {
-    let newOption = document.createElement("option");
-    newOption.innerText = currCode +" - "+countryList[currCode][0];
-    newOption.value = currCode;
-    if (select.name === "from" && currCode === "PKR") {
-      newOption.selected = "selected";
-    } else if (select.name === "to" && currCode === "USD") {
-      newOption.selected = "selected";
-    }
-    select.append(newOption);
-  }
-  select.addEventListener("change",(evt)=>{
-    updateFlag(evt.target);
-
-  })
-
+        select.addEventListener("change", (e) => updateFlag(e.target));
+    });
 }
 
-function updateFlag(element){
-    let currCode=element.value;
-    let countryCode=countryList[currCode][1];
-
-    let newSrc=`https://flagsapi.com/${countryCode}/flat/64.png`
-    let img=element.parentElement.querySelector("img");
-    img.src=newSrc;
+// Update flag image based on selected country
+function updateFlag(element) {
+    const currCode = element.value;
+    const countryCode = countryList[currCode][1];
+    const img = element.previousElementSibling;
+    img.src = `https://flagsapi.com/${countryCode}/flat/64.png`;
 }
 
-
-convertBtn.addEventListener("click",async (evt)=>{
-    evt.preventDefault();
-    let value =Amount.value;
-    if (Amount.value==="" ||Amount.value<=0){
-        Amount.value="1";
-    }
-    
-    const url=`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrency.value.toLowerCase()}.json`;
-
-    let Response=await fetch(url);
-    Response=await Response.json();
-    
-    let price=Response[fromCurrency.value.toLowerCase()][toCurrency.value.toLowerCase()];
-
-    let numericResult=price *Amount.value;
-
-
-
-    let Rate;
-    if (numericResult>1e10){
-      Rate=numericResult.toExponential(2);
-
-    }
-    else if(numericResult>1){
-      Rate=numericResult.toFixed(2); //reducing extra decimals
-    }
-    else{
-      Rate=numericResult.toFixed(6);  // if result is too small 0.000005
+// Main conversion logic
+async function performConversion() {
+    let amountVal = amountInput.value;
+    if (amountVal === "" || amountVal <= 0) {
+        amountInput.value = "1";
+        amountVal = 1;
     }
 
-    let Result = `= ${Rate} ${toCurrency.value}`;
+    // Premium Loading Experience
+    loader.classList.remove("hidden");
+    const card = document.querySelector(".converter-card");
+    card.style.filter = "blur(4px)";
+    card.style.pointerEvents = "none";
 
+    try {
+        const fromCode = fromCurrency.value.toLowerCase();
+        const toCode = toCurrency.value.toLowerCase();
+        const url = `${API_URL}/${fromCode}.json`;
 
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("API call failed");
+        
+        const data = await response.json();
+        const rate = data[fromCode][toCode];
+        const result = (amountVal * rate);
 
+        // Formatting result
+        let formattedResult;
+        if (result > 1e10) formattedResult = result.toExponential(2);
+        else if (result > 1) formattedResult = result.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        else formattedResult = result.toFixed(6);
 
-    let conversionResult=document.querySelector("#conversion-result")
-    conversionResult.innerText=Result;
-    conversionResult.style.display="flex";
-})
+        // Delay for premium feel
+        setTimeout(() => {
+            conversionResult.innerText = `${amountVal} ${fromCurrency.value} = ${formattedResult} ${toCurrency.value}`;
+            conversionResult.style.display = "flex";
+            
+            // Reset UI
+            card.style.filter = "none";
+            card.style.pointerEvents = "all";
+            loader.classList.add("hidden");
+        }, 600);
 
+    } catch (error) {
+        console.error("Conversion Error:", error);
+        conversionResult.innerText = "Error fetching rates. Please try again.";
+        conversionResult.style.display = "flex";
+        card.style.filter = "none";
+        card.style.pointerEvents = "all";
+        loader.classList.add("hidden");
+    }
+}
+
+// Event Listeners
+document.querySelector(".converter-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    performConversion();
+});
 
 swapBtn.addEventListener("click", () => {
-  let temp = fromCurrency.value;
-  fromCurrency.value = toCurrency.value;
-  toCurrency.value = temp;
+    const temp = fromCurrency.value;
+    fromCurrency.value = toCurrency.value;
+    toCurrency.value = temp;
 
-  fromCurrency.dispatchEvent(new Event("change"));
-  toCurrency.dispatchEvent(new Event("change"));
+    updateFlag(fromCurrency);
+    updateFlag(toCurrency);
+    
+    // Auto-convert on swap if result is already showing
+    if (conversionResult.style.display === "flex") {
+        performConversion();
+    }
+});
+
+// Initialize on load
+window.addEventListener("load", () => {
+    populateDropdowns();
 });
